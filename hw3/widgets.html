@@ -1,28 +1,99 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                margin-left: 20px;
+            }
+            .compose{
+
+            }
+            .subtitle{
+                font-weight: bold;
+                padding-left: 30px;
+            }
+            textarea{
+                border-width: 1px;
+                border-color: black;
+            }
+            button{
+                color: Black;
+            }
+            #count{
+            }
+            .count-warning{
+                color: red;
+                font-weight: bold;
+            }
+            .post-list{
+                border-width: 1px;
+            }
+        </style>
+
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
         <script>
-        
+
+            var USERNAME = "Username";
+            var tweetContent = "";
+            var tweetLen = 0;
+            var charRemaining = 30;
+            var maxLen = 30;
+
+            $(document).ready(function(){
+
+                $("#textarea").keyup(function(){
+                    tweetContent = $(this).val();
+                    console.log(tweetContent);
+                    tweetLen = tweetContent.length;
+                    charRemaining = maxLen - tweetLen;
+                    $("#count").html(charRemaining);
+
+                    if (charRemaining < 0){
+                        $("#post").css("color", "grey");
+                        $("#count").addClass(".count-warning");
+                        console.log($("#count").css("font-weight"))
+                    } else {
+                        $("#post").css("color", "black");
+                    }
+                });
+
+
+                $("#post").click(function(){
+                    // if tweetLen = 
+                })
+
+            });
+
         </script>
     </head>
 
 
     <body>
+
         <div>
-			<form>
-				<fieldset>
-                    Write a tweet:<br>
-                    <textarea name="tweet content" rows="10" cols="30">
-                        Type your tweet here
-                    </textarea>
-                    <br>
-					<input type="submit" value="Post">
-				</fieldset>
-            </form>
+            <div class="compose">
+                <div class="subtitle">
+                    Write a tweet:
+                </div>
+                <textarea type="text" id="textarea" rows="1" cols="30"></textarea>
+                <br>
+                <button id="post">Post</button>
+                number of characters left: 
+                <span id="count">
+                    30
+                </span>
+            </div>
+
         </div>
+        <br>
         <div>
-            
+            <div class="subtitle">
+                Posts
+            </div>
+            <div class="post-list">
+                test
+            </div>
         </div>
     </body>
 </html>
