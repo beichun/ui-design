@@ -1,137 +1,124 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <style>
-            /* body{
-                font-family: Arial, Helvetica, sans-serif;
-                margin-left: 20px;
-            } */
-            /* .compose{
 
-            } */
-            .subtitle{
-                font-weight: bold;
-                padding-left: 20px;
-            }
-            /* .post-valid */
-            .post-invalid{
-                color: grey;
-            }
-            .count-valid{
-                display: inline-block;
-                color: lightgrey;
-            }
-            .count-warning{
-                display: inline-block;
-                color: red;
-                font-weight: bold;
-            }
-            /* #post-list{
-                border-width: 1px;
-            } */
-            .post-box{
-                padding: 10px;
-                border-width: 1px;
-            }
-        </style>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .subtitle {
+            font-weight: bold;
+            padding-left: 20px;
+        }
 
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-        <script>
+        .post-invalid {
+            color: grey;
+        }
 
-            var USERNAME = "Username";
-            var tweetContent = "";
-            var charRemaining = 30;
-            var maxLen = 30;
-            var nPost = 0;
+        .count-valid {
+            display: inline-block;
+            color: lightgrey;
+        }
 
-            function updatePost(){
-                // var postID = "post" + nPost++;
-                // console.log(tweetContent.length);
-                var newPost = $("<div></div>");
-                // newPost.attr("id", postID);
-                newPost.addClass("post-box");
-                newPost.html(USERNAME + ": " + tweetContent);
-                $("#post-list").prepend(newPost);
-                $("#textarea").focus();
+        .count-warning {
+            display: inline-block;
+            color: red;
+            font-weight: bold;
+        }
+
+        .post-box {
+            padding: 10px;
+            border-width: 1px;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script>
+
+        var USERNAME = "Username";
+        var tweetContent = "";
+        var charRemaining;
+        var maxLen = 30;
+
+        function updateCount() {
+            tweetContent = $("#textarea").val().replace(/(\r\n|\n|\r)/gm, "");
+            charRemaining = maxLen - tweetContent.length;
+            $("#count").html(charRemaining);
+
+            // set styles of count
+            if (tweetContent.length > maxLen) {
+                $("#count").addClass("count-warning");
+            } else {
+                $("#count").removeClass("count-warning");
             }
 
-            function updateCount(){
-                tweetContent = $("#textarea").val();
-                charRemaining = maxLen - tweetContent.length;
-                $("#count").html(charRemaining);
+            // set styles of post button
+            if (tweetContent.length > maxLen || tweetContent.replace(/\s+/g, '').length == 0) {
+                $("#post").addClass("post-invalid");
+                $("#post").prop("disabled", true);
+            } else {
+                $("#post").removeClass("post-invalid");
+                $("#post").prop("disabled", false);
+            }
 
-                if (tweetContent.length>maxLen) {
-                    $("#post").addClass("post-invalid");
-                    $("#count").addClass("count-warning");
-                    $("#post").prop("disabled", true);
-                    console.log("disabled")
-                } else {
-                    $("#post").removeClass("post-invalid");
-                    $("#count").removeClass("count-warning");
-                    $("#post").prop("disabled", false);
+        }
+
+        function updatePost() {
+            var newPost = $("<div></div>");
+            newPost.addClass("post-box");
+            newPost.html(USERNAME + ": " + tweetContent);
+            $("#post-list").prepend(newPost);
+            $("#textarea").focus();
+        }
+
+        $(document).ready(function () {
+            updateCount();
+
+            $("#textarea").keyup(function (event) {
+                if (event.which == 13 && tweetContent.length <= maxLen && tweetContent.replace(/\s+/g, '').length != 0) {
+                    updatePost();
+                    $("#textarea").val("");
                 }
-            }
 
-            $(document).ready(function(){
-                // TODO: conditions are not clear
-                $("#textarea").keyup(function(event){
-                    if (event.which!=13){
-                        updateCount();
-                    }
-                });
+                updateCount();
+            })
 
-                $("#textarea").keypress(function(event){
-                    // console.log(event.which);
-                    if (event.which==13 && tweetContent.replace(/\s+/g, '').length!=0) {
-                        updatePost();
-                        $("#textarea").val("");
-                        updateCount();
-                    }
-                })
+            $("#post").click(function () {
+                if (tweetContent.replace(/\s+/g, '').length != 0) {
+                    updatePost();
 
-                $("#post").click(function(){
-                    if (tweetContent.replace(/\s+/g, '').length!=0) {
-                        // console.log(charRemaining)
-                        updatePost();
-                        // console.log("posted")
+                    $("#textarea").val("");
+                    updateCount();
+                }
+            })
 
-                        $("#textarea").val("");
-                        // tweetContent = "";
-                        updateCount();
-                    }
-                    else {
+        })
 
-                    }
-                })
-
-            });
-
-        </script>
-    </head>
+    </script>
+</head>
 
 
-    <body>
+<body>
 
-        <div>
-            <div class="compose">
-                <div class="subtitle">
-                    Write a tweet:
-                </div>
-                <textarea type="text" id="textarea" rows="1" cols="30"></textarea>
-                <br>
-                <button id="post">Post</button>
-                <div id="count" class="count-valid">
-                    30
-                </div>
-            </div>
-
-        </div>
-        <br>
-        <div>
+    <div>
+        <div class="compose">
             <div class="subtitle">
-                Posts
+                Write a tweet:
             </div>
-            <div id="post-list"></div>
+            <textarea type="text" id="textarea" placeholder="type your tweet" rows="1" cols="30"></textarea>
+            <br>
+            <button id="post">Post</button>
+            <div id="count" class="count-valid">
+                30
+            </div>
         </div>
-    </body>
+
+    </div>
+    <br>
+    <div>
+        <div class="subtitle">
+            Posts
+        </div>
+        <div id="post-list"></div>
+    </div>
+</body>
+
 </html>
