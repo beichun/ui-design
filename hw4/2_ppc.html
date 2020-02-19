@@ -1,0 +1,117 @@
+<html>
+
+<head>
+
+    <!-- JQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- bootstrap same as before -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+
+    <style>
+        .header {
+            background-color: silver;
+            padding-top: 80px;
+            padding-bottom: 80;
+            padding-left: 30px;
+            margin-bottom: 50px;
+            font-weight: bold;
+            color: black;
+            font-size: 40px;
+        }
+
+        .col-md-4 {
+            margin-left: 10px;
+            margin-right: 10px;
+
+        }
+
+        .title {
+            padding: 30px;
+            background-color: lightblue;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .name {
+            border-width: 2px;
+            /* background-color: green; */
+        }
+
+        .transparent {
+            opacity: 0.5;
+        }
+
+        .highlight {
+            background-color: lightyellow;
+            cursor: move;
+        }
+
+        .ui-draggable-dragging {
+            cursor: move;
+            background-color: lightyellow;
+            position: absolute;
+            z-index: 1000;
+        }
+
+        .dark {
+            background-color: cornflowerblue;
+        }
+
+        .darker {
+            background-color: blue;
+        }
+    </style>
+
+    <script src="./2_ppc.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 header">
+                Party Planning Committee
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-4">
+
+                <div class="title" id="nppc">
+                    Non-PPC
+                </div>
+
+                <div id="nppc-list">
+                    <!-- name -->
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="title" id="ppc">
+                    PPC
+                </div>
+
+                <div id="ppc-list">
+                    <!-- name -->
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
