@@ -3,4 +3,5 @@
 *.tar.gz
 *.zip
 *.vscode
-*/_MACOSX/
+.DS_Store
+__MACOSX/

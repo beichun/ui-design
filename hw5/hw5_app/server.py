@@ -41,10 +41,27 @@ clients = [
     "Taco Bell",
 ]
 
+non_ppc_people = [
+    "Phyllis",
+    "Dwight",
+    "Oscar",
+    "Creed",
+    "Pam",
+    "Jim",
+    "Stanley",
+    "Michael",
+    "Kevin",
+    "Kelly"
+    ]
+
+ppc_people = [
+    "Angela"
+    ]
+
 
 @app.route('/infinity')
 def infinity():
-    return render_template('cu-paper-infinity.html', sales=sales, clients=clients) 
+    return render_template('cu-paper-infinity.html', sales=sales, clients=clients)
 
 @app.route('/save_sale', methods=['GET', 'POST'])
 def save_sale():
@@ -83,6 +100,35 @@ def delete_sale():
     current_id -= 1
 
     return jsonify(sales=sales)
+
+@app.route('/ppc')
+def ppc():
+    return render_template('ppc.html', ppc=ppc_people, nppc=non_ppc_people)
+
+@app.route('/move_person', methods=['GET', 'POST'])
+def move_person():
+
+    global ppc_people
+    global non_ppc_people
+
+    json_data = request.get_json()
+
+    target = json_data["target"]
+    name = json_data["name"]
+
+    # remove name from either list
+    if name in ppc_people:
+        ppc_people.remove(name)
+    else:
+        non_ppc_people.remove(name)
+
+    # add name to th target list
+    if target=="ppc":
+        ppc_people.append(json_data["name"])
+    else:
+        non_ppc_people.append(json_data["name"])
+
+    return jsonify(ppc=ppc_people, nppc=non_ppc_people)
 
 
 if __name__ == '__main__':
