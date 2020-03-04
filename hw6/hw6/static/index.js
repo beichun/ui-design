@@ -27,7 +27,6 @@ function display_results(data) {
         
         $("#result-list").append(result)
     });
-    // console.log(data);
 
     $(".btn-danger").click(function () { 
         var index = $(this).attr("id")
@@ -35,8 +34,6 @@ function display_results(data) {
         var send = {
             "id": id
         }
-        console.log(index);
-        console.log(id);
         
         
         $.ajax({
@@ -47,7 +44,6 @@ function display_results(data) {
             data: JSON.stringify(send),
             success: function (response) {
                 data.splice(index, 1)
-                console.log(data);
                 $.each(data, function (i, item) { 
                     if (item["id"] > index) {
                         item["id"] -= 1
@@ -68,6 +64,20 @@ function display_results(data) {
 
 }
 
+function check_input(input) {
+    var valid = true
+    if (input == "") {
+        var warning = $("<div class='warning'>Please fill search keyword</div>")
+        $("#warning").append(warning)
+        valid = false
+    } else if (input.replace(/\s+/g, "").length == 0) {
+        var warning = $("<div class='warning'>Invalid spaces</div>")
+        $("#warning").append(warning)
+        valid = false
+    }
+    return valid
+}
+
 $(document).ready(function () {
     
     // display_results(data)
@@ -77,53 +87,41 @@ $(document).ready(function () {
 
     $(".search-btn").click(function () {
         
-        $("#result-list").empty();
-        var search_key = {
-            "search_key": $("#searchbox").val()
-        }
+        var input = $("#searchbox").val()
 
-        // ajax call to search
-        $.ajax({
-            type: "POST",
-            url: "search",
-            dataType : "json",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(search_key),
-            success: function (response) {
-                var search_result = response["result"]
+        $("#warning").empty()
+        valid = check_input(input)
 
-                if (search_result.length == 0) {
-                    $("#result-list").html("No results found.")
-                } else {
-                    display_results(search_result)
-                }                
-            },
-            error: function(request, status, error){
-                console.log("Error");
-                console.log(request)
-                console.log(status)
-                console.log(error)
+        if (valid == true) {
+            $("#result-list").empty();
+            var search_key = {
+                "search_key": input
             }
-        });
-    });
 
-    // $(".btn-danger").click(function () { 
-    //     var id = {
-    //         "id": $(this).attr("id")
-    //     }
+            // ajax call to search
+            $.ajax({
+                type: "POST",
+                url: "search",
+                dataType : "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(search_key),
+                success: function (response) {
+                    var search_result = response["result"]
+
+                    if (search_result.length == 0) {
+                        $("#result-list").html("No results found.")
+                    } else {
+                        display_results(search_result)
+                    }                
+                },
+                error: function(request, status, error){
+                    console.log("Error");
+                    console.log(request)
+                    console.log(status)
+                    console.log(error)
+                }
+            });
+        }
         
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "/delete",
-    //         dataType : "json",
-    //         contentType: "application/json; charset=utf-8",
-    //         data: JSON.stringify(id),
-    //         success: function (response) {
-    //             data = response["data"]
-    //             display_results(data)
-    //         }
-    //     });
-        
-        
-    // });
+    });
 });

@@ -1,5 +1,3 @@
-console.log("in edit");
-
 function displayInfo() {
     $(".name").append(item["name"]);
     $("#edit").prop("href", "/edit/" + item["id"])
@@ -27,35 +25,69 @@ function displayInfo() {
     });
 }
 
+function check_input(name, comment) {
+    var valid = true
+
+    if (name == "") {
+        var warning = $("<div class='warning'>Please fill name</div>")
+        $("#name-warning").append(warning)
+        valid = false
+    } else if (name.replace(/\s+/g, "").length == 0) {
+        var warning = $("<div class='warning'>Invalid spaces</div>")
+        $("#name-warning").append(warning)
+        valid = false
+    }
+    if (comment == "") {
+        var warning = $("<div class='warning'>Please fill comment</div>")
+        $("#comment-warning").append(warning)
+        valid = false
+    } else if (name.replace(/\s+/g, "").length == 0) {
+        var warning = $("<div class='warning'>Invalid spaces</div>")
+        $("#comment-warning").append(warning)
+        valid = false
+    }
+    return valid
+}
+
 $(document).ready(function () {
     displayInfo()
 
     $("#submit").click(function () { 
+
+        $("#name-warning, #comment-warning").empty()
+
         var name = $("#name").val()
         var comment = $("#comment").val()
 
-        var review = {
-            "id": item["id"],
-            "name": name,
-            "comment": comment
+        var valid = check_input(name, comment)
+        
+
+        if (valid == true) {
+            
+            var review = {
+                "id": item["id"],
+                "name": name,
+                "comment": comment
+            }
+            
+            $.ajax({
+                type: "POST",
+                url: "/add_review",
+                dataType : "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(review),
+                success: function (response) {
+                    window.location.href = "http://127.0.0.1:5000/view/" + item["id"]
+                },
+                error: function(request, status, error){
+                    console.log("Error");
+                    console.log(request)
+                    console.log(status)
+                    console.log(error)
+                }
+            });
         }
         
-        $.ajax({
-            type: "POST",
-            url: "/add_review",
-            dataType : "json",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(review),
-            success: function (response) {
-                window.location.href = "http://127.0.0.1:5000/view/" + item["id"]
-            },
-            error: function(request, status, error){
-                console.log("Error");
-                console.log(request)
-                console.log(status)
-                console.log(error)
-            }
-        });
         
     });
 

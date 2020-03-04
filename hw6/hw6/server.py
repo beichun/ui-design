@@ -560,7 +560,6 @@ def add_item():
     new_item["id"] = current_id
 
     data.append(new_item)
-    print(data[-1])
     return jsonify(url="view/"+str(new_item["id"]))
 
 

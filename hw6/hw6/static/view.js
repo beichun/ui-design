@@ -1,5 +1,3 @@
-console.log("in view");
-
 $(document).ready(function () {
     $(".name").append(item["name"]);
     $("#edit").prop("href", "/edit/" + item["id"])

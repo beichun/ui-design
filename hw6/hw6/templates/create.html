@@ -10,6 +10,14 @@
 
         <script type="text/javascript" src="{{ url_for('static', filename = 'create.js') }}"></script>
 
+        <style>
+            .header {
+                font-size: 40px;
+            }
+            .warning {
+                color: red;
+            }
+        </style>
     </head>
 
     <body>
@@ -23,31 +31,48 @@
                 </div>
                 <div class="col-md-10">
                     <textarea id="name" rows="1" cols="50"></textarea>
+                    <div id="name-warning">
+                        
+                    </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-2">
                     Image (link):
                 </div>
                 <div class="col-md-10">
                     <textarea id="image" rows="1" cols="50"></textarea>
+                    <div id="image-warning">
+                        
+                    </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-2">
                     Attack:
                 </div>
                 <div class="col-md-10">
                     <textarea id="attack" rows="1" cols="5"></textarea>
+                    <div id="attack-warning">
+                    
+                    </div>
                 </div>
+                
             </div>
+
             <div class="row">
                 <div class="col-md-2">
                     Durability:
                 </div>
                 <div class="col-md-10">
                     <textarea id="durability" rows="1" cols="5"></textarea>
+                    <div id="durability-warning">
+                    
+                    </div>
                 </div>
+                
             </div>
             <div class="row">
                 <div class="col-md-2">
@@ -55,7 +80,11 @@
                 </div>
                 <div class="col-md-10">
                     <textarea id="summary" rows="2" cols="50"></textarea>
+                    <div id="summary-warning">
+                    
+                    </div>
                 </div>
+                
             </div>
             <div class="row">
                 <div class="col-md-2">
@@ -63,7 +92,11 @@
                 </div>
                 <div class="col-md-10">
                     <textarea id="description" rows="5" cols="50"></textarea>
+                    <div id="description-warning">
+                    
+                    </div>
                 </div>
+                
             </div>
 
             <div class="row">
@@ -73,10 +106,16 @@
                     <div class="row">
                         <div class="col-md-2">
                             <textarea id="player" rows="1" cols="50" placeholder="player"></textarea>
+                            <div id="player-warning">
+                                
+                            </div>
                         </div>
 
                         <div class="col-md-10">
                             <textarea id="comment" rows="1" cols="50" placeholder="comment"></textarea>
+                            <div id="comment-warning">
+                                
+                            </div>
                         </div>
                     </div>
 
@@ -84,8 +123,11 @@
             </div>
 
             <div class="row">
-                <div id="submit-row" class="col-md-12">
+                <div class="col-md-12">
                     <button class="btn btn-primary" id="submit">submit</button>
+                    <div id="submit-row">
+                        
+                    </div>
                 </div>
             </div>
         </div>
