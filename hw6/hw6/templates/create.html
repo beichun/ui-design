@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <!-- JQuery -->
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <!-- bootstrap same as before -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+        <script type="text/javascript" src="{{ url_for('static', filename = 'create.js') }}"></script>
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+                Add new weapon
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    Weapon name:
+                </div>
+                <div class="col-md-10">
+                    <textarea id="name" rows="1" cols="50"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    Image (link):
+                </div>
+                <div class="col-md-10">
+                    <textarea id="image" rows="1" cols="50"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    Attack:
+                </div>
+                <div class="col-md-10">
+                    <textarea id="attack" rows="1" cols="5"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    Durability:
+                </div>
+                <div class="col-md-10">
+                    <textarea id="durability" rows="1" cols="5"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    Summary:
+                </div>
+                <div class="col-md-10">
+                    <textarea id="summary" rows="2" cols="50"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    Description:
+                </div>
+                <div class="col-md-10">
+                    <textarea id="description" rows="5" cols="50"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="reviews" class="col-md-12">
+                    reviews:
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <textarea id="player" rows="1" cols="50" placeholder="player"></textarea>
+                        </div>
+
+                        <div class="col-md-10">
+                            <textarea id="comment" rows="1" cols="50" placeholder="comment"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="submit-row" class="col-md-12">
+                    <button class="btn btn-primary" id="submit">submit</button>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
