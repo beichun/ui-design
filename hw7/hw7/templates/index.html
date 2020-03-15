@@ -1,0 +1,77 @@
+<html>
+
+    <head>
+        <link rel="shortcut icon" href="https://gamepedia.cursecdn.com/zelda_gamepedia_en/0/05/BotW_Master_Sword_Icon.png?version=26bf023b97f5f966351641d9d0a54f7a">
+        <!-- JQuery -->
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <!-- bootstrap same as before -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+        <script type="text/javascript" src="{{ url_for('static', filename = 'index.js') }}"></script>
+
+        <script>
+            var data = {{data|tojson}};
+            var names = {{names|tojson}}
+        </script>
+
+        <style>
+            .header {
+                height: 50px;
+                text-align: center;
+            }
+            .search-bar {
+                height: 50px;
+                /* background-color: pink; */
+            }
+            .search-bar-hint {
+                text-align: right;
+                /* vertical-align: middle; */
+            }
+            #searchbox {
+                display: inline-block;
+                text-align: left;
+                width: 200px;
+                height: 35px;
+                resize: none;
+            }
+            .btn {
+                display: inline-block;
+                text-align: left;
+                
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 header">
+                    Legned of Zelda: Breath of The Wild weapons reference
+                </div>
+            </div>
+            <div class="row search-bar">
+                <div class="col-md-2 search-bar-hint">
+                    Type a weapon name:
+                </div>
+                <div class="col-md-10">
+                        <!-- Search: -->
+                    <textarea id="searchbox" rows="1" cols="20"></textarea>
+                    <button class="btn btn-primary search-btn" type="button">Search</button>
+                    <br>
+                    <div id="warning">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="result-list">
+                </div>
+            </div>
+        </div>
+        
+    </body>
+
+</html>
