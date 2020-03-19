@@ -12,7 +12,7 @@ data = [
         "img": "https://gamepedia.cursecdn.com/zelda_gamepedia_en/0/05/BotW_Master_Sword_Icon.png?version=26bf023b97f5f966351641d9d0a54f7a",
         "attack": 30,
         "durability": 40,
-        "summary": "The Master Sword, also known as the Blade of Evil's Bane, the Legendary Sword, the Sword of Legend, the Master Sword of Resurrection, the Sword that Seals the Darkness, and the Sacred Sword, is a recurring legendary Sword in the The Legend of Zelda series.",
+        "summary": "The Master Sword, also known as the Legendary Sword, the Sword of Legend, the Master Sword of Resurrection, the Sword that Seals the Darkness, is a recurring legendary Sword in the The Legend of Zelda series.",
         "description": "The Master Sword was originally crafted by the goddess Hylia as the Goddess Sword, and was later forged into the Master Sword by the Goddess's chosen hero and its spirit, Fi, who bathed it in the three Sacred Flames located across the land that would become the Kingdom of Hyrule. Din's Flame in particular imbued the sword with the Power to Repel Evil, a power augmented after the Sword received the blessing of Zelda, which transformed the blade into the True Master Sword. It is usually the only Sword that can defeat Ganon in the games it appears in.",
         "reviews": [
             {
@@ -505,15 +505,16 @@ data = [
 
 current_id = 29
 
-@app.route('/')
-def main():
-
-    # get names of weapons
+def get_names():
     names = []
     for item in data:
         names.append(item["name"])
+    return names
 
-    return render_template('index.html', data=data, names=names)
+@app.route('/')
+def main():
+
+    return render_template('index.html', data=data[-10:], names=get_names())
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -527,8 +528,18 @@ def search():
     search_result = []
     for item in data:
         if keys.lower() in item["name"].lower():
-            search_result.append(item)
-    
+            item_found = item
+            item_found["matched"] = "name"
+            item_found["position_st"] = item["name"].lower().find(keys.lower())
+            item_found["position_en"] = item_found["position_st"] + len(keys)
+            search_result.append(item_found)
+        elif keys.lower() in item["summary"].lower():
+            item_found = item
+            item_found["matched"] = "summary"
+            item_found["position_st"] = item["summary"].lower().find(keys.lower())
+            item_found["position_en"] = item_found["position_st"] + len(keys)
+            search_result.append(item_found)
+    print(search_result)
     return jsonify(n_items=len(search_result), result=search_result)
 
 
@@ -547,7 +558,7 @@ def view(id=0):
 
 @app.route('/create')
 def create():
-    return render_template("create.html")
+    return render_template("create.html", names=get_names())
 
 
 @app.route('/add_item', methods=['GET', 'POST'])

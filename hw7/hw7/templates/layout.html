@@ -1,0 +1,72 @@
+<html>
+    <head>
+        {% block head %}
+        <link rel="shortcut icon" href="https://gamepedia.cursecdn.com/zelda_gamepedia_en/0/05/BotW_Master_Sword_Icon.png?version=26bf023b97f5f966351641d9d0a54f7a">
+        <!-- JQuery -->
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+        <!-- bootstrap same as before -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+        <script type="text/javascript" src="{{ url_for('static', filename = 'search.js') }}"></script>
+
+        <style>
+            #search-box {
+                width: 300px;
+            }
+            .highlight-result {
+                background-color: yellow;
+            }
+
+            .result-item {
+                padding: 20px;
+            }
+
+            .card {
+                height: 355px;
+            }
+
+            .card-img-top {
+                display: block;
+                margin-top: 15px;
+                margin-left: auto;
+                margin-right: auto;
+                width: 120px;
+                height: auto;
+            }
+        
+            .card-summary {
+                display: block;
+                color: grey;
+            }
+        </style>
+        {% endblock head %}
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="https://gamepedia.cursecdn.com/zelda_gamepedia_en/0/05/BotW_Master_Sword_Icon.png?version=26bf023b97f5f966351641d9d0a54f7a" width="30" height="30" class="d-inline-block align-top" alt="">
+                    Zelda Weapons
+                </a>
+                <!-- <input id="search-box" class="form-control mr-sm-2" type="search" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+                <form class="form-inline">
+                    <input id="search-box" class="form-control mr-sm-2" type="search" placeholder="Weapon name" aria-label="Search">
+                    <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="button">Go</button>
+                </form>
+                <a href="/create">create new weapon!</a>
+            </div>
+        </nav>
+
+        <div id="content" class="container">
+            {% block content %}
+            
+            {% endblock content %}
+        </div>
+
+    </body>
+</html>
