@@ -1,82 +1,330 @@
-<html>
-    <head>
-        <link rel="shortcut icon" href="https://gamepedia.cursecdn.com/zelda_gamepedia_en/0/05/BotW_Master_Sword_Icon.png?version=26bf023b97f5f966351641d9d0a54f7a">
-        <!-- JQuery -->
-        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% extends 'layout.html' %}
 
-        <!-- bootstrap same as before -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+{% block head %}
 
-        <script type="text/javascript" src="{{ url_for('static', filename = 'view.js') }}"></script>
+{{ super() }}
 
-        <script>
-            var item = {{item|tojson}};
-        </script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'view.js') }}"></script>
 
-        <style>
-            .name {
-                font-size: 40px;
-            }
-            .edit {
-                font-size: 28px;
-            }
-        </style>
+<script>
+    var names = {{names|tojson}}
+    var item = {{item|tojson}}
+</script>
 
-    </head>
+<style>
 
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="row">
-                        <div id="name" class="col-md-10 name">
+    #section1 {
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+    .weapon-image {
+        display: block;
+        padding-top: 0px;
+        height: 100%;
+        width: auto;
+        align-items: center;
+        image-rendering: pixelated;
+    }
+
+    #summary {
+        display: block;
+        color: black;
+        text-align: justify;
+    }
+
+    h1 {
+        display: block;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 90px;
+    }
+
+    #attack, #durability {
+        text-align: center;
+    }
+
+    h5 {
+        display: block;
+        text-align: center;
+    }
+
+    #attack-label {
+        background-color: tomato;
+    }
+
+    #durability-label {
+        background-color: LightBlue;
+        
+    }
+
+    .label {
+        height: 22px;
+        width: auto;
+        vertical-align: middle;
+    }
+
+    #description, #reviews {
+        padding-top: 10px;
+        padding-bottom: 50px;
+        text-align: justify;
+    }
+
+    .hr-left {
+        padding-bottom: 20px;
+        position: relative;
+        font-size: 20px;
+        margin: 0 auto;
+        border-top: 1px solid silver;
+        border-image-source: linear-gradient(to right, white, grey);
+        border-image-slice: 1;
+        margin-top: 15px;
+    }
+
+    .hr-right {
+        padding-bottom: 20px;
+        position: relative;
+        font-size: 20px;
+        margin: 0 auto;
+        border-top: 1px solid silver;
+        border-image-source: linear-gradient(to left, white, grey);
+        border-image-slice: 1;
+        margin-top: 15px;
+    }
+
+    .subheader {
+        font-size: 20px;
+        text-align: center;
+        padding-right: 0px;
+    }
+
+    .review-section {
+        padding-bottom : 25px;
+    }
+
+    .user-icon {
+        width: 100%;
+        padding-left: 10px;
+    }
+
+    .user-name {
+        font-weight: bold;
+    }
+
+    #add-button {
+        margin-top: 10px;
+    }
+
+    .small-icon-inverse {
+        height: 16px;
+        -webkit-filter: invert(100%);
+        filter: invert(100%);
+    }
+
+    .small-icon {
+        height: 24px;
+    }
+
+    .deleted {
+        color: grey;
+        text-decoration: line-through
+    }
+
+</style>
+
+{% endblock head %}
+
+
+{% block content %}
+    
+{{ super() }}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row" id="section1">
+            
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 id="title">
+                            
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row" id="facts">
+                            <div class="col-md-1">
+                                
+                            </div>
+
+                            <div class="col-md-5" id="attack">
+                                <h5><span class="badge badge-danger">Attack</span>&nbsp</h5>
+                                
+                            </div>
+                            <div class="col-md-5" id="durability">
+                                <h5><span class="badge badge-primary">Durability</span>&nbsp</h5>
+                                
+                            </div>
                         </div>
-                        <div class="col-md-2 edit">
-                            <a id="edit" href="">Edit</a>
+
+                        <div class="row">
+                            <div class="col-md-12" id="summary">
+                                <span class="badge badge-secondary">Summary</span>
+                            </div>
                         </div>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div id="attack" class="col-md-6 attack">
-                            Attack:
-                        </div>
-                        <div id="durability" class="col-md-6 durability">
-                            Durability:
-                        </div>
-                    </div>
-                </div>
-
-                <div id="image" class="col-md-6 image">
-                    
                 </div>
             </div>
 
-            <br>
-
-            <div id="summary" class="row">
-                Summary:
-            </div>
-            <br>
-            <div id="description" class="row">
-                Description:
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-2">
-                    player
-                </div>
-                <div class="col-md-10">
-                    comment
-                </div>
-            </div>
-            <div class="row">
-                <div id="reviews" class="col-md-12">
-                    
-                </div>
-
+            <div class="col-md-5" id="image">
+                
             </div>
         </div>
-    </body>
-</html>
+
+        <div class="row">
+            <div class="col-md-5 hr-left">
+            </div>
+            <div class="col-md-2 subheader">
+                Description
+            </div>
+            <div class="col-md-5 hr-right">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="description">
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 hr-left">
+            </div>
+            <div class="col-md-2 subheader">
+                Reviews
+            </div>
+            <div class="col-md-5 hr-right">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12" id="reviews">
+                
+                <div class="row review-section d-none" id="review-section0">
+                    <div class="col-md-1">
+                        <img src="https://image.flaticon.com/icons/svg/141/141791.svg" alt="user icon Penguin" class="user-icon">
+                    </div>
+
+                    <div class="col-md-10">
+                        <div id="user0" class="user-name">
+                            
+                        </div>
+                        <div id="comment0" class="user-comment">
+                            
+                        </div>
+                    </div>
+                    <div class="col" id="0">
+                        <button type="button" class="close delete-button" aria-label="Close"><img src="https://www.flaticon.com/premium-icon/icons/svg/484/484611.svg" alt="discard icon" class="small-icon"></button>
+                        <button type="button" class="btn btn-outline-secondary d-none">Undo</button>
+                    </div>
+                </div>
+
+                <div class="row review-section d-none" id="review-section1">
+                    <div class="col-md-1">
+                        <img src="https://image.flaticon.com/icons/svg/141/141796.svg" alt="user icon Tiger" class="user-icon">
+                    </div>
+
+                    <div class="col-md-10">
+                        <div id="user1" class="user-name">
+                            
+                        </div>
+                        <div id="comment1" class="user-comment">
+                            
+                        </div>
+                    </div>
+                    <div class="col" id="1">
+                        <button type="button" class="close delete-button" aria-label="Close"><img src="https://www.flaticon.com/premium-icon/icons/svg/484/484611.svg" alt="discard icon" class="small-icon"></button>
+                        <button type="button" class="btn btn-outline-secondary d-none">Undo</button>
+                    </div>
+                </div>
+
+                <div class="row review-section d-none" id="review-section2">
+                    <div class="col-md-1">
+                        <img src="https://image.flaticon.com/icons/svg/141/141785.svg" alt="user icon Frog" class="user-icon">
+                    </div>
+
+                    <div class="col-md-10">
+                        <div id="user2" class="user-name">
+                            
+                        </div>
+                        <div id="comment2" class="user-comment">
+                            
+                        </div>
+                    </div>
+                    <div class="col" id="2">
+                        <button type="button" class="close delete-button" aria-label="Close"><img src="https://www.flaticon.com/premium-icon/icons/svg/484/484611.svg" alt="discard icon" class="small-icon"></button>
+                        <button type="button" class="btn btn-outline-secondary d-none">Undo</button>
+                    </div>
+                </div>
+
+                <div class="row review-section d-none" id="review-section3">
+                    <div class="col-md-1">
+                        <img src="https://image.flaticon.com/icons/svg/141/141784.svg" alt="user icon Fox" class="user-icon">
+                    </div>
+
+                    <div class="col-md-10">
+                        <div id="user3" class="user-name">
+                            
+                        </div>
+                        <div id="comment3" class="user-comment">
+                            
+                        </div>
+                    </div>
+                    <div class="col" id="3">
+                        <button type="button" class="close d-inline delete-button" aria-label="Close"><img src="https://www.flaticon.com/premium-icon/icons/svg/484/484611.svg" alt="discard icon" class="small-icon"></button>
+                        <button type="button" class="btn btn-outline-secondary d-none">Undo</button>
+                    </div>
+                </div>
+
+                <div class="row review-section" id="review-section-add">
+                    <div class="col-md-1">
+                        <img src="https://image.flaticon.com/icons/svg/141/141789.svg" alt="user icon Monkey" class="user-icon">
+                    </div>
+                    <div class="col-md-11">
+                        <button type="button" class="btn btn-primary" id="add-button"><img src="https://image.flaticon.com/icons/svg/1159/1159633.svg" alt="add icon" class="small-icon-inverse"> Add review</button>
+                        
+                        <form class="d-none" id="comment-form" novalidate>
+                            <div class="form-group row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="input-group" id="form-username">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                        </div>
+                                        <input type="text" class="form-control" id="input-username" placeholder="username" aria-describedby="inputGroupPrepend" required>
+                                    </div>
+                                </div>
+                
+                                <div class="col-md-12 mb-3" id="form-comment">
+                                    <textarea class="form-control" id="input-comment" rows="3" placeholder="comment"></textarea>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary d-inline" id="submit-button">Submit</button>
+                                    <button type="button" class="close d-inline" aria-label="Close" id="discard-button"><img src="https://www.flaticon.com/premium-icon/icons/svg/484/484611.svg" alt="discard icon" class="small-icon"></button>
+                                </div>
+                            </div>
+
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="example" class="row">
+    
+</div>
+
+{% endblock content %}

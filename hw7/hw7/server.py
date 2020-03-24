@@ -16,10 +16,12 @@ data = [
         "description": "The Master Sword was originally crafted by the goddess Hylia as the Goddess Sword, and was later forged into the Master Sword by the Goddess's chosen hero and its spirit, Fi, who bathed it in the three Sacred Flames located across the land that would become the Kingdom of Hyrule. Din's Flame in particular imbued the sword with the Power to Repel Evil, a power augmented after the Sword received the blessing of Zelda, which transformed the blade into the True Master Sword. It is usually the only Sword that can defeat Ganon in the games it appears in.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "Cydni Gadsden",
                 "comment": "The master sword made this so easy!!"
             },
             {
+                "marked_as_deleted": False,
                 "player": "Daniel Martinez",
                 "comment": "I did it. 3rd time really was the charm. I actually finished the main storyline. Got the Master Sword. All 120 of the shrines. All memories. All Divine Beasts. (No, I will not go after all 900 koroks). Yeah, it only took 3 tries in 3 years, but that was incredible. Master Mode, Trials and other DLC will be played eventually. For now I'm just going to take it all in. Damn great experience.🗡🗡🗡🗡🗡🗡🗡🗡🗡🗡🗡🗡🗡🗡🗡 PS: The final boss encounter is one of the best I ever played. Up there with other boss fights like the Psycho Mantis encounter in Metal Gear Solid. 🗡🗡🗡🗡🗡🗡🗡🗡🗡🗡🗡🗡🗡🗡"
             }
@@ -35,10 +37,12 @@ data = [
         "description": "The Savage Lynel Crusher is an item from The Legend of Zelda: Breath of the Wild. It is a two-handed mace-like weapon wielded by White-Maned Lynels and Silver Lynels which Link can obtain by defeating them. It is the strongest of the three Lynel-made Crusher weapons crafted by skilled Lynels blacksmiths from a rare metal acquired from the peak of Death Mountain. This crusher has the second highest DPS of any two-handed weapon and a staggering base attack power of 78. It is outclassed only by the Ancient Battle Axe ++ when worn with the full Ancient armor set. However, in terms of overall damage dealt before the weapon breaks, the Crusher's dominance is contested by the Boulder Breaker and Ancient Bladesaw.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "bradboii",
                 "comment": "Really getting into fighting lynels now and I'm proud of this"
             },
             {
+                "marked_as_deleted": False,
                 "player": "kokiden88",
                 "comment": "I got the exact same one. Except it’s 108 instead of 107.I am never letting that one break. I use that very same Lynel crusher to farm Lynels by jumping on their back and killing them that way. Weapon doesn’t get damaged that way."
             }
@@ -54,6 +58,7 @@ data = [
         "description": "The Royal Guard's Claymore is an item from The Legend of Zelda: Breath of the Wild. It is a two-handed sword with an attack rating of 72, though this may be increased by certain weapon bonuses. A Royal Guard's Claymore can be found in one of the cells in Hyrule Castle (Breath of the Wild) Lockup. A Moblin in the Guards' Chamber wield one as well and will respawn with one each Blood Moon.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "PozPoz_",
                 "comment": "Just got a 115 damage Royal Guard’s Claymore from Hyrule Castle (Attack Up +43)"
             }
@@ -70,6 +75,7 @@ data = [
         "description": "The Boulder Breaker is an item from The Legend of Zelda: Breath of the Wild. It is a Goron sword originally wielded by Goron Champion Daruk. Like most Goron swords, it functions more akin to a Hammer due to its blunt blade and weight, as in they mine ore better than all other weapons. As a result this weapon can be considered a hammer-sword hybrid.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "goro-n",
                 "comment": "Is this weapon okay for breaking ore? I have been using it since it seems to be made of stone, but I don't want to wreck durability."
             }
@@ -86,6 +92,7 @@ data = [
         "description": 'The Ancient Battle Axe++ is the strongest version of the Ancient Battle Axe with a base attack of 60, but this may be increased by certain Weapon Bonuses. It is used by the strongest Guardian Scouts. Link can obtain it by defeating them. With certain techniques such as using "Ancient Proficiency" bonus from a Level 2 "Ancient" armor set and dishes granting "Attack Up", the Ancient Battle Axe++ is one of the strongest weapons.',
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player":"DanTheGoodman_",
                 "comment": "I have only found the ancient battle axe from the major test of strength, does anyone know where else these kinds can be found? I am basically looking to get one for each weapon type."
             }
@@ -102,6 +109,7 @@ data = [
         "description": "The Savage Lynel Sword is an item from The Legend of Zelda: Breath of the Wild. It is a sword wielded by White-Maned Lynels and Silver Lynels which Link can obtain by defeating them. It is the strongest of the three Lynel-made swords with a base attack of 58. Furthermore, it is also arguably the most powerful one-handed sword in the game (excluding the awakened Master Sword).",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "Electric_Sheep22",
                 "comment": "I just got a 100 power savage lynel sword with +42 attack up!"
             }
@@ -118,6 +126,7 @@ data = [
         "description": "The Ancient Bladesaw is an item from The Legend of Zelda: Breath of the Wild. It is chainsaw-like sword forged using Ancient Sheikah technology. Its unique chainsaw-like design gives it impressive cutting power. Link can have it forged by Cherry at the Akkala Ancient Tech Lab after completing the side quest 'Robbie's Research' for 1000 Rupees, 15 Ancient Screw, 5 Ancient Shafts, and 2 Ancient Cores.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "Le_avocado",
                 "comment": "So... just recently purchased the ancient armor set from Robbie by farming guardian parts from Major Tests of Strength (and guardian stalkers) and got a few Ancient Battle axes ++ and was wondering, whether they are better than the Ancient Bladesaw at the Akkala Ancient Tech Lab that you can buy. Since they are both 2 handed weapons and the battleaxe has a better attack stat is it better than the bladesaw? And is there no point in spending rupees and ancient parts to buy the Bladesaw?"
             }
@@ -134,6 +143,7 @@ data = [
         "description": "The Mighty Lynel Crusher is an item from The Legend of Zelda: Breath of the Wild. It is a two-handed mace-like weapon wielded by Blue-Maned Lynels which Link can obtain by them. It is the second strongest of the three Lynel Crusher weapons.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "CarterWilliams777",
                 "comment": "I’ve seen a couple 108 or 109 lynel crushers before. They probably get even higher on occasion."
             }
@@ -150,6 +160,7 @@ data = [
         "description": "The Royal Claymore is an item from The Legend of Zelda: Breath of the Wild. It is a two-handed sword with a base attack power of 52, though this may be increased by certain weapon bonuses. The claymore is originally issued to the Royal Family of Hyrule's guard detail.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "laughpuppy23",
                 "comment": "i wast trying to get the climbing set as easly as possible in the game, but one of them was gated by a major test of strength and I had all starter weapons. i waited until I found a royal claymore and went to him, and It broke halfway through! it’s one of the strongest weapons in the game no?! regardless of how you feel of the weapon breaking mechanic, I can’t help but feel that late game weapons should be a bit sturdier than that..."
             }
@@ -166,6 +177,7 @@ data = [
         "description": "The Edge of Duality is an item from The Legend of Zelda: Breath of the Wild. It is a Sheikah sword with a base attack rating of 50 though this may be increased by certain weapon bonuses. The Edge of Duality is a two-handed double-edged sword which was crafted using Ancient Sheikah technology. It was originally intended for Knights of Hyrule unfamiliar with single-edged blades traditionally used by the Sheikah tribe. Unlike the Royal Guard weapons created using Sheikah technology to combat Calamity Ganon, it does not suffer from low durability. It is implied the Edge of Duality was a conventional greatsword developed by the ancient Sheikah for the Knights of Hyrule ten millennia before Breath of the Wild as some are found within Shrines which are 10,000 years old.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "Sarahneth",
                 "comment": "In case someone searches this weapon up on Reddit the Edge of Duality spawns in a cave just north of the Gerudo Tower, about halfway between Karusa Valley and Sapphia's Table. It's behind some rocks that you need to use Stasis to move"
             }
@@ -182,10 +194,12 @@ data = [
         "description": "The Royal Guard's Sword is an item from The Legend of Zelda: Breath of the Wild. It is an one-handed sword with a base attack power of 48 and a base durability of 14. Link can find it in Hyrule Castle. One can be found in a pedestal behind a breakable wall in the hallways above the Castle's Armory that is a reference to the Master Sword it is based on.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "e1owl",
                 "comment": "I found the broadsword which was sitting in a pedestal behind a cracked wall that you can break with bombs in one of the corridors inside Hyrule castle. It does 48 damage and for me it had a long throw bonus."
             },
             {
+                "marked_as_deleted": False,
                 "player": "DanTheGoodman_",
                 "comment": "There's a few royal guard weapons in the lockup underneath the castle. Go to the west side of the castle, there will be tunnels leading to the underground of the castle. Continue along them and eventually you should find the lockup."
             }
@@ -202,6 +216,7 @@ data = [
         "description": "The Dragonbone Moblin Club is an item from The Legend of Zelda: Breath of the Wild. It is a Moblin Club with dragonbone affixed to it to further increase its damage and is the strongest Moblin-made club. It has a base attack of 45, though this may be increased by certain weapon bonuses. However it is made of wood and will burn in exposed to fire or volcanic temperatures.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "Most-Impressive",
                 "comment": "The Dragonbone Moblin Club is the best sneakstriking weapon in the game (math and farming map inside)"
             }
@@ -217,6 +232,7 @@ data = [
         "description": "The Ancient Battle Axe+ is a stronger version of the Ancient Battle Axe with a base attack of 45, but this may be increased by certain Weapon Bonuses. It is used by higher level Guardian Scouts encountered in certain Shrines. Link can obtain it by defeating them.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "PaulTheCarman",
                 "comment": "In the side quest 'Weapon Connoisseur,' you are tasked with finding a series of weapons for a kid in Hateno village. One of the weapons you have to find is an ancient battle axe +, which are obtained from the Moderate Tests of Strength."
             }
@@ -232,6 +248,7 @@ data = [
         "description": "The Stone Smasher is an item in The Legend of Zelda: Breath of the Wild. It is Goron-made Sword which while normally can be wielded one-handed by Gorons, Lizalfos, and Moblins due to their strength, it is primarily a two-handed sword when wielded by Hylians and Bokoblins. Like all Goron made swords, the blade itself is blunt and as a result relies instead on blunt force to damage enemies and cannot be used to cut grass or trees. As a result, the Stone Smasher and other Goron swords function more like Hammers, thus like the Iron Sledgehammer can be used as a tool for mining Ore Deposits. As a result this weapon can be consider a hammer-sword hybrid.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "mallsoft",
                 "comment": "I start at goron city, put the shiekah sensor on a stone smasher and walk around until I catch one"
             }
@@ -247,6 +264,7 @@ data = [
         "description": "The Ancient Short Sword is an item from The Legend of Zelda: Breath of the Wild. It is a sword crafted with the ancient Sheikah technology. It was developed through research of the Guardian and ancient technology researcher, Doctor Robbie as Ancient Soldier Gear, Anti-Calamity armaments he developed to be wielded by Link after he awoke from the Slumber of Restoration. Like the Guardian Sword and other ancient blades, its energy blade only appears when drawn (or mounted in Link's House) and its cutting power is said to suprasses metal swords. However the Ancient Short Sword cannot be obtained from Guardian Scouts.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "jabberwagon",
                 "comment": "The Ancient Short Sword does more damage per hit to Guardians (50% more), plus it can benefit from the Ancient Proficiency buff (80% more) and an Attack Up meal (50% more) at the same time. For those keeping track, that's around 4.05 times normal damage, or 162 damage per hit when fully buffed and used against Guardians."
             }
@@ -262,10 +280,12 @@ data = [
         "description": "This Guardian Sword is a major improvement overall over the base Guardian Sword, now boasting double the damage of the original model (40 over 20) and greatly increased durability, which is also roughly doubled to 32. The Guardian Sword++ can only be found in Shrines proposing \"A Major Test of Strength\" trials, requiring the player to defeat the Guardian Scout IV lurking there. After completing one of these combat trials and obtaining its Shrine's Spirit Orb, these trials will reset after midnight on a Blood Moon allowing Link to obtain replacements. Visually, it is much larger than the base model. Its damage is on par with the Ancient Short Sword, although it is inferior by having lower durability (roughly 20 less than the Short Sword) and by having a lower damage multiplier against Guardians (30% vs 50%). Additionally, it is unable to be reforged, unlike the Ancient Short Sword.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "GameWinner5",
                 "comment": "I wanted to celebrate maxing my Ancient Armor Set by loading up on Ancient++ weapons, but they seem to be running out of durability fairly quickly. Are they more frail than, say, Savage Lynel weapons? Or other weapons in general? They do tons of damage so I would understand if they don't have the best durability but it's still upsetting going through one camp of mobs and losing 1-2 really valuable weapons. Most of them have Durability+ as well."
             },
             {
+                "marked_as_deleted": False,
                 "player": "ziggurism",
                 "comment": "Yes, guardian weapons have fairly low durability. It is one of the ways that ancient weapons (from Akkala tech lab) distinguish themselves from the guardian class weapons. They're like the guardian weapons, in that they have a bonus against guardians (an even strong buff than guardian class), and are also enhanced by ancient proficiency. They have lower attack, but higher durability."
             }
@@ -281,6 +301,7 @@ data = [
         "description": "The Demon Carver is an item from The Legend of Zelda: Breath of the Wild. It is a circular blade forged by the Sheikah Yiga Clan. It is used by both Yiga Footsoldiers and Blademasters. Like most enemy weapons, Link can pick it up and wield it. It can be used to cut down trees in one hit instead of the usual two. Once Master Kohga has been defeated, Yiga Footsoldiers disguised as travelers wield Demon Carvers instead of Vicious Sickles.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "Tosh_v",
                 "comment": "Found out Demon Carver fits nicely around a round shield."
             }
@@ -296,10 +317,12 @@ data = [
         "description": "The Windcleaver is an item from The Legend of Zelda: Breath of the Wild. It is a single-edged sword with a base attack rating of 40, though this may be increased by certain weapon bonuses. It is used by Yiga Blademasters of the Sheikah Yiga Clan and like most enemy weapons, Link can pick it up and use it himself, but it is notably less powerful in his hands compared to Blademasters due to their expertise with the blade.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "littlemantry",
                 "comment": "Big Yiga guys start to ambush you as you play across the world map and always carry the windcleaver."
             },
             {
+                "marked_as_deleted": False,
                 "player": "Hte_D0ngening2",
                 "comment": "The Windcleaver is a semi-rare drop from Yiga Blademasters. Just keep killing them and you should find one eventually. Unfortunately, grinding for Yiga weapons is very time-consuming, especially since Yiga members carrying high-damage weapons like the Demon Carver or Windcleaver have a much lower spawn rate than the ones carrying Vicious Sickles or Duplex Bows."
             }
@@ -315,10 +338,12 @@ data = [
         "description": "The Knight's Claymore is an item from The Legend of Zelda: Breath of the Wild. It is a two-handed sword with a base attack power of 38, though this may increase if it has certain weapon bonuses. It is occasionally wielded by monsters such as Lizalfos in Tabantha Tundra in the Tabantha Frontier region. One also spawns near a bottomless pool in the Military Training Camp in the Great Hyrule Forest region. One spawns in the Guards' Chamber of Hyrule Castle.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "SAOkirito1",
                 "comment": "Does anyone else wonder what's up with the knight's claymore? Seriously, it looks like something from Attack on Titan."
             },
             {
+                "marked_as_deleted": False,
                 "player": "Flopjacks",
                 "comment": "It’s probably supposed to be based on Goron weapons"
             }
@@ -334,10 +359,12 @@ data = [
         "description": 'The Royal Broadsword is an item from The Legend of Zelda: Breath of the Wild. It is a sword with a base attack power of 36, though this may be increased by certain weapon bonuses. It can be obtained in Akkala Highlands, Tabantha Frontier, and Hyrule Castle. One spawns in the Military Training Camp. It is also occasionally wielded by enemies. Silver Bokoblins, Silver Moblins, and Silver Lizalfos often wield these and other "Royal" series equipment. Hinox tend to wear them as jewelry on their necklaces and if Link is stealthy he can remove it from a Hinox as it sleeps gaining a valuable weapon while avoiding a fight.',
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "Scoutdad",
                 "comment": "Amiibo also hand them out frequently for me at my current level in the game. I frequently have to leave them on the chests."
             },
             {
+                "marked_as_deleted": False,
                 "player": "NewAgeWizard",
                 "comment": "You could always try recycling rusty broadswords via rock octorocks (but I don't know how common royal weapons are with that method)"
             }
@@ -353,10 +380,12 @@ data = [
         "description": "The Lizal Tri-Boomerang is an item in The Legend of Zelda: Breath of the Wild. It is a Lizalfos made Boomerang which in addition to being thrown can be used as a single-handed melee weapon, allowing them to wield it in conjunction with Lizalfos made Shields. Link can equip it as a melee weapon which can be thrown or used as a melee weapon. It is the strongest of the Lizalfos made Boomerangs with a base attack power of 36 but this can be increased by certain weapon bonuses. Additionally it is the strongest boomerang in terms of base attack power, as it is even stronger than the Giant Boomerang despite that boomerang being a larger two-handed weapon, though it lacks the Giant Boomerang's durability. Its even stronger than the Sea-Breeze Boomerang obtained via the amiibo Rune. It is mainly wielded by Black Lizalfos, though may be wielded by Silver Lizalfos or Stalizalfos. Link may also encounter other monsters wielding one such as Moblins.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "G0ldenEye5",
                 "comment": "I love the boomerang weapons, I always get excited whenever I find a giant boomerang even though I never use it for its intended purpose"
             },
             {
+                "marked_as_deleted": False,
                 "player": "Scadooot",
                 "comment": "Yeah boomerangs are so much fun, i like them because they provide an interesting alternative to arrows"
             }
@@ -372,10 +401,12 @@ data = [
         "description": "The Mighty Lynel Sword is an item from The Legend of Zelda: Breath of the Wild. It is a sword wielded by Blue-Maned and White-Maned Lynels which Link can obtain by defeating them. It is the second strongest of the three Lynel-made swords.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "LoopyBullet",
                 "comment": "Can't find Mighty Lynel Bow. Blue-Maned Lynels drop Savage Bows only. Help! Any reason why this would be? I thought Blue-Maned Lynels drop Mighty stuff only? Was there some kind of update to get rid of the Mighty Lynel Bow? Do the Lynel bows scale faster than the other weapons for some reason? Sounds like I've just permanently missed out on the Mighty Bow. :("
             },
             {
+                "marked_as_deleted": False,
                 "player": "PseudoTwili",
                 "comment": "The blue-maned Lynel in Hyrule Castle always carries Mighty gear. Now, normally the Lynels in the two gatehouses don't leave their gear behind after you slay them, but there's a way you can still get it. After entering the gatehouse by the main gate and seeing the Lynel drop down, save your game and reload the save. After this just fight the Lynel and he should leave his gear behind on his defeat."
             }
@@ -391,6 +422,7 @@ data = [
         "description": "The Dragonbone Boko Bat is an item from The Legend of Zelda: Breath of the Wild. It is a Boko Bat that has been fortified with a fossilized dragonbone. This bat is the strongest Boko Bat and is generally wielded by high tier Bokoblins though rarely Stalkoblin and Moblins may wield them in certain places. They are most commonly found in the Hyrule Ridge and Necluda Sea regions according to the Hyrule Compendium. The Hinox (Youngest Kin) in Hanu Pond wears one as necklace jewelry.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "browndaw004",
                 "comment": "Equipped Creature gets +1/+0, trample, Second Strike(this creature deals damage after the other), and {1}: This creature gains menace until end of turn."
             }
@@ -406,6 +438,7 @@ data = [
         "description": "The Lynel Crusher is an item from The Legend of Zelda: Breath of the Wild. It is a two-handed mace-like weapon. Link can obtained it after defeating a Lynel. It has a base attack power of 36 though this may be increased by an Attack Up weapon bonus. It is the weakest of the Lynel-made Crusher weapons.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "InfiniteEdge18",
                 "comment": "The swords are 1 handed so their great for quick attacks, the crushers deal massive damage, but their slow 2 handed weapons, and Idk about the spears also, You'll have an easier time farming the swords than crushers"
             }
@@ -421,6 +454,7 @@ data = [
         "description": "The Great Flameblade is an item from The Legend of Zelda: Breath of the Wild. It is a two-handed greatsword forged by Goron smiths in the fires of Death Mountain in ancient times and infused with magic that causes it to expel red flames when its blade glows causing fire damage to enemies. Link can find it at the Ancient Tree Stump in Central Hyrule, at the Eldin Great Skeleton in the Eldin Mountains or in the Treasure Chests of Rona Kachta Shrine and Shai Yota Shrine.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "Stephanie Williams‎",
                 "comment": "I really want to make the Great Flameblade from LoZ: Breath of the Wild. I haven't really messed around with programming LEDs. Is regular worbla transparent enough for LEDs to glow through, or would I use all clear worbla for the blade part? Reference pictures below."
             }
@@ -436,6 +470,7 @@ data = [
         "description": "The Scimitar of the Seven is an item from The Legend of Zelda: Breath of the Wild. It is a single-handed sword with a base attack power of 32. It can be obtained by Link along with the Daybreaker as a reward for completing the Divine Beast Vah Naboris dungeon. It is the strongest single-handed Gerudo made sword.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "Mic",
                 "comment": "Urbosa's one-handed sword can be repaired if you have a diamond, five flint and a Gerudo Scimitar. The Gerudo Scimitar can be found on a bundle of boxes immediately to the left of the entrance to Gerudo Town and up a small set of stairs. Once you have all that, take it to the guard standing next to the throne in Gerudo Town — she'll give you a new Scimitar of the Seven in return."
             }
@@ -451,6 +486,7 @@ data = [
         "description": "Eightfold Longblades are items from The Legend of Zelda: Breath of the Wild. They are Sheikah longswords with a base attack power of 32, though this may increase if they have certain weapon bonuses. One can be obtained in a Treasure Chest found in the Shee Vaneer Shrine. They are also occasionally wielded by enemies, such as a Lizalfos on Samasa Plain near the Rucco Maag Shrine. The swords are rarely seen in Hyrule, and were forged using Ancient Sheikah technology. When charged, instead of doing a heavy spin-attack, Link will hold it like he's about to draw it from a side sheath and do a quick slash when the button is released.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "RegulusMagnus",
                 "comment": "The charge attack for this weapon is also somewhat unique (shared only with the windblade, but that charge attack also does something else)"
             }
@@ -466,6 +502,7 @@ data = [
         "description": "The Great Thunderblade is an item from The Legend of Zelda: Breath of the Wild. It is a two-handed elemental sword filled with lightning power from the Hyrule Hills, shocking and causing electric damage to enemies save for those resistant to electricity. They are among several rare weapons forged by the Royal Family of Hyrule. As with the other elemental weapons in Breath of the Wild it's high durability and magical effects make it a good backup to the Master Sword during it's recharge period.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "KonohaJonin",
                 "comment": "IIRC theres a Great Flameblade that's super accessible right by the Great Plateau, Excalibur'd into a makeshift pedestal on top of the giant ancient tree stump that is next to the Coliseum."
             }
@@ -481,6 +518,7 @@ data = [
         "description": "The Royal Guard's Spear is an item from The Legend of Zelda: Breath of the Wild. It is a spear created using Ancient Sheikah technology to combat Calamity Ganon and its design was based on the Royal Halberd, though it has a darker coloration. While its attack power is very high, a critical design flaw left it with poor durability, making it less effective.",
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "ziggurism",
                 "comment": "Royal guard gear is different than royal gear. Royal gear can be found all over the map. Royal guard gear can only be found at the castle."
             }
@@ -496,6 +534,7 @@ data = [
         "description": 'This Guardian Sword is a good improvement overall over the base Guardian Sword, with significantly more damage (30 base over 20) and has a decent durability increase (from 17 to 26). It can be only found in Shrines proposing "A Modest Test of Strength" trial, where the player must defeat a Guardian Scout III wielding it. Visually, the sword is somewhat larger, on par with most other swords, when compared to the small-looking standard Guardian Sword.',
         "reviews": [
             {
+                "marked_as_deleted": False,
                 "player": "ziggurism",
                 "comment": "guardian weapons have fairly low durability. It is one of the ways that ancient weapons (from Akkala tech lab) distinguish themselves from the guardian class weapons. They're like the guardian weapons, in that they have a bonus against guardians (an even strong buff than guardian class), and are also enhanced by ancient proficiency. They have lower attack, but higher durability."
             }
@@ -517,13 +556,10 @@ def main():
     return render_template('index.html', data=data[-10:], names=get_names())
 
 
-@app.route('/search', methods=['GET', 'POST'])
-def search():
+@app.route('/search/<keys>', methods=['GET', 'POST'])
+def search(keys):
 
     global data
-
-    json_data = request.get_json()
-    keys = json_data["search_key"]
     
     search_result = []
     for item in data:
@@ -540,7 +576,8 @@ def search():
             item_found["position_en"] = item_found["position_st"] + len(keys)
             search_result.append(item_found)
     print(search_result)
-    return jsonify(n_items=len(search_result), result=search_result)
+    # return jsonify(n_items=len(search_result), result=search_result)
+    return render_template('results.html', n_items=len(search_result), results=search_result, names=get_names())
 
 
 @app.route('/view/<id>')
@@ -551,7 +588,7 @@ def view(id=0):
     # get the item with the exact id
     for item in data:
         if item["id"] == int(id):
-            return render_template('view.html', item=item)
+            return render_template('view.html', names=get_names(), item=item)
     else:
         print("id not valid")
 
@@ -610,12 +647,41 @@ def add_review():
 
     json_data = request.get_json()
     id = json_data["id"]
+    
     data[id]["reviews"].append(
         {
-            "player": json_data["name"],
-            "comment": json_data["comment"]
+            "player": json_data["player"],
+            "comment": json_data["comment"],
+            "marked_as_deleted": False
         }
     )
+
+    return jsonify(0)
+
+@app.route('/delete_review', methods=['GET', 'POST'])
+def delete_review():
+
+    global data
+
+    json_data = request.get_json()
+    id = json_data["weapon_id"]
+    comment_id = int(float(json_data["comment_id"]))
+    print(comment_id, type(comment_id))
+    data[id]["reviews"][comment_id]["marked_as_deleted"] = True
+
+    return jsonify(0)
+
+@app.route('/recover_review', methods=['GET', 'POST'])
+def recover_review():
+
+    global data
+
+    json_data = request.get_json()
+    id = json_data["weapon_id"]
+    comment_id = int(float(json_data["comment_id"]))
+    print(comment_id, type(comment_id))
+    data[id]["reviews"][comment_id]["marked_as_deleted"] = False
+
     return jsonify(0)
 
 if __name__ == '__main__':

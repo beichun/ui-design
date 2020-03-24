@@ -1,136 +1,138 @@
-<html>
-    <head>
-        <!-- JQuery -->
-        <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% extends 'layout.html' %}
 
-        <!-- bootstrap same as before -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+{% block head %}
 
-        <script type="text/javascript" src="{{ url_for('static', filename = 'create.js') }}"></script>
+{{ super() }}
 
-        <style>
-            .header {
-                font-size: 40px;
-            }
-            .warning {
-                color: red;
-            }
-        </style>
-    </head>
+<script type="text/javascript" src="{{ url_for('static', filename = 'create.js') }}"></script>
 
-    <body>
-        <div class="container">
-            <div class="header">
-                Add new weapon
+<script>
+    var names = {{names|tojson}}
+</script>
+
+<style>
+
+    #success-notification {
+        background-color: LightPink;
+        text-align: center;
+        font-size: 14px;
+    }
+    .header {
+        display: block;
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
+
+    #input-name {
+        width: 300px;
+    }
+    #input-durability, #input-attack {
+        width: 100px;
+    }
+
+
+</style>
+
+{% endblock head %}
+
+
+{% block content %}
+    
+{{ super() }}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-primary" role="alert" id="success-notification">
+            
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 header">
+        <h2>Create a new weapon</h2>
+    </div>
+</div>
+
+<form id="new-form" novalidate>
+<!-- <form id="new-form" action="/add_item" method="POST" novalidate> -->
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Weapon name</label>
+        <div class="col-sm-4" id="form-name">
+            <input type="text" class="form-control" id="input-name" name="name" placeholder="name" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Attack</label>
+        <div class="col-sm-4" id="form-attack">
+            <input type="number" min="1" max="99" class="form-control" id="input-attack" placeholder="1" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Durability</label>
+        <div class="col-sm-4" id="form-durability">
+            <input type="number" min="1" max="99" class="form-control" id="input-durability" placeholder="1" required>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Image link</label>
+        <div class="col-sm-10" id="form-image">
+            <input type="url" class="form-control" id="input-image" placeholder="url" required>
+            <div class="invalid-feedback">
+                Please provide a valid link of an image.
             </div>
-            <div class="row">
-                <div class="col-md-2">
-                    Weapon name:
-                </div>
-                <div class="col-md-10">
-                    <textarea id="name" rows="1" cols="50"></textarea>
-                    <div id="name-warning">
-                        
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
 
-            <div class="row">
-                <div class="col-md-2">
-                    Image (link):
-                </div>
-                <div class="col-md-10">
-                    <textarea id="image" rows="1" cols="50"></textarea>
-                    <div id="image-warning">
-                        
-                    </div>
-                </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Summary</label>
+        <div class="col-sm-10" id="form-summary">
+            <input type="text" class="form-control" id="input-summary" placeholder="summary" required>
+            <div class="invalid-feedback">
+                Please provide a summary.
             </div>
+        </div>
+    </div>
 
-            <div class="row">
-                <div class="col-md-2">
-                    Attack:
-                </div>
-                <div class="col-md-10">
-                    <textarea id="attack" rows="1" cols="5"></textarea>
-                    <div id="attack-warning">
-                    
-                    </div>
-                </div>
-                
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Description</label>
+        <div class="col-sm-10" id="form-description">
+            <textarea class="form-control" id="input-description" rows="3" placeholder="description" required ></textarea>
+            <div class="invalid-feedback">
+                Please provide a detailed description.
             </div>
+        </div>
+    </div>
 
-            <div class="row">
-                <div class="col-md-2">
-                    Durability:
-                </div>
-                <div class="col-md-10">
-                    <textarea id="durability" rows="1" cols="5"></textarea>
-                    <div id="durability-warning">
-                    
-                    </div>
-                </div>
-                
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    Summary:
-                </div>
-                <div class="col-md-10">
-                    <textarea id="summary" rows="2" cols="50"></textarea>
-                    <div id="summary-warning">
-                    
-                    </div>
-                </div>
-                
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    Description:
-                </div>
-                <div class="col-md-10">
-                    <textarea id="description" rows="5" cols="50"></textarea>
-                    <div id="description-warning">
-                    
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="row">
-                <div id="reviews" class="col-md-12">
-                    reviews:
-
-                    <div class="row">
-                        <div class="col-md-2">
-                            <textarea id="player" rows="1" cols="50" placeholder="player"></textarea>
-                            <div id="player-warning">
-                                
-                            </div>
+    <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Reviews</label>
+        <div class="col-sm-10">
+            <div class="form-group row">
+                <div class="col-md-4 mb-3">
+                    <div class="input-group" id="form-username">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend">@</span>
                         </div>
-
-                        <div class="col-md-10">
-                            <textarea id="comment" rows="1" cols="50" placeholder="comment"></textarea>
-                            <div id="comment-warning">
-                                
-                            </div>
-                        </div>
+                        <input type="text" class="form-control" id="input-username" placeholder="username" aria-describedby="inputGroupPrepend" required>
                     </div>
-
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <button class="btn btn-primary" id="submit">submit</button>
-                    <div id="submit-row">
-                        
-                    </div>
+                <div class="col-md-12 mb-3" id="form-comment">
+                    <textarea class="form-control" id="input-comment" rows="3" placeholder="comment"></textarea>
                 </div>
             </div>
         </div>
-        
-    </body>
-</html>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
+
+{% endblock content %}

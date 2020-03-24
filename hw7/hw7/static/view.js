@@ -1,26 +1,152 @@
+function get_feedback(feedback) {
+    var template = $("<div class='invalid-feedback'></div>")
+    template.html(feedback)
+    return template
+}
+
+function validate_string(input_s, parent_s, name) {
+    var val = $(input_s).val().trim()
+    var valid = true
+    
+    if (val.length == 0) {
+        $(input_s).addClass("is-invalid")
+        $(parent_s).append(get_feedback("Please provide a " + name + "."))
+        valid = false;
+    } else if (val.replace(/\s+/g, "").length == 0) {
+        $(input_s).addClass("is-invalid")
+        $(parent_s).append(get_feedback("Invalid spaces."))
+        valid = false
+    }
+    return valid
+}
+
+function validate_inputs() {
+    var valid = true
+
+    // validate name
+    if (!validate_string("#input-username", "#form-username", "username")) {
+        valid = false
+    }
+
+    // validate comment
+    if (!validate_string("#input-comment", "#form-comment", "comment")) {
+        valid = false
+    }
+
+    return valid
+}
 $(document).ready(function () {
-    $(".name").append(item["name"]);
-    $("#edit").prop("href", "/edit/" + item["id"])
 
-    $("#attack").append(item["attack"]);
-    $("#durability").append(item["durability"]);
+    var name = item["name"]
+    var image = $("<img src='" + item["img"] + "' alt='" + name + "'>")
+    $("#image").append("<img src='" + item["img"] + "' class='weapon-image rounded mx-auto d-block img-thumbnail' alt='" + name + "'>");
 
-    $("#image").append("<img src='" + item["img"] + "'>")
+    $("#title").html(name)
+
+    $("#attack").children().append(item["attack"]);
+    $("#durability").children().append(item["durability"]);
 
     $("#summary").append(item["summary"]);
     $("#description").append(item["description"]);
 
     $.each(item["reviews"], function (index, item) { 
-        var review = $("<div class='row'></div>")
+        console.log(item);
         
-        var col1 = $("<div class='col-md-2'></div>")
-        col1.html(item["player"])
-        review.append(col1)
+        if (!item["marked_as_deleted"]) {
+            console.log("logged");
+            
+            $("#review-section" + index).removeClass("d-none")
+            $("#user" + index).append(item["player"])
+            $("#comment" + index).append(item["comment"])
+        }
+        
+    });
 
-        var col2 = $("<div class='col-md-10'></div>")
-        col2.html(item["comment"])
-        review.append(col2)
+    $(".delete-button").click(function(e) {
+        var comment_id = $(this).parent().prop("id")
+        data = {
+            "weapon_id": item["id"],
+            "comment_id": comment_id
+        }
+        
+        $.ajax({
+            type: "POST",
+            url: "/delete_review",
+            dataType : "json",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
+            success: function (response) {
+                console.log("deleted");
+                // window.location.href = "http://127.0.0.1:5000/view/" + item["id"]
+                $("#" + comment_id).children().eq(0).children().addClass("d-none")
+                $("#" + comment_id).children().eq(1).removeClass("d-none")
+                
+                $(".user-name").eq(comment_id).addClass("deleted")
+                $(".user-comment").eq(comment_id).addClass("deleted")
 
-        $("#reviews").append(review);
+                $("#" + comment_id).children().eq(1).click(function(e) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/recover_review",
+                        dataType : "json",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(data),
+                        success: function (response) {
+                            console.log("recovered");
+                            $("#" + comment_id).children().eq(0).children().removeClass("d-none")
+                            $("#" + comment_id).children().eq(1).addClass("d-none")
+                            $(".user-name").eq(comment_id).removeClass("deleted")
+                            $(".user-comment").eq(comment_id).removeClass("deleted")
+                        }
+                    });
+                })
+
+            }
+        });
+    })
+
+    $("#add-button").click(function (e) { 
+        $("#add-button").addClass("d-none")
+        $("form").removeClass("d-none")
+        $("#input-username").focus()
+
+        $("#discard-button").click(function(e) {
+            $("#form-username").val("")
+            $("#form-comment").val("")
+            $("#add-button").removeClass("d-none")
+            $("form").addClass("d-none")
+        })
+
+        $("#comment-form").submit(function(event) {
+            event.preventDefault()
+
+            console.log("submit");
+
+            $(".invalid-feedback").remove()
+            var valid = validate_inputs()
+            console.log(valid);
+
+            if (valid) {
+                var new_review = {
+                    "id": item["id"],
+                    "player": $("#input-username").val().trim(),
+                    "comment": $("#input-comment").val().trim()
+                }
+                console.log(new_review);
+                
+
+                $.ajax({
+                    type: "POST",
+                    url: "/add_review",
+                    dataType : "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(new_review),
+                    success: function (response) {
+                        window.location.href = "http://127.0.0.1:5000/view/" + item["id"]
+                    }
+                });
+            }
+        })
+
     });
 });

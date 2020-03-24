@@ -13,11 +13,14 @@
         <script type="text/javascript" src="{{ url_for('static', filename = 'search.js') }}"></script>
 
         <style>
+
             #search-box {
                 width: 300px;
             }
-            .highlight-result {
-                background-color: yellow;
+
+            .form-inline {
+                margin-top: auto;
+                margin-bottom: auto;
             }
 
             .result-item {
@@ -27,20 +30,7 @@
             .card {
                 height: 355px;
             }
-
-            .card-img-top {
-                display: block;
-                margin-top: 15px;
-                margin-left: auto;
-                margin-right: auto;
-                width: 120px;
-                height: auto;
-            }
         
-            .card-summary {
-                display: block;
-                color: grey;
-            }
         </style>
         {% endblock head %}
     </head>
@@ -50,13 +40,13 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
                     <img src="https://gamepedia.cursecdn.com/zelda_gamepedia_en/0/05/BotW_Master_Sword_Icon.png?version=26bf023b97f5f966351641d9d0a54f7a" width="30" height="30" class="d-inline-block align-top" alt="">
-                    Zelda Weapons
+                    Zelda Weapons Wiki
                 </a>
                 <!-- <input id="search-box" class="form-control mr-sm-2" type="search" placeholder="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-                <form class="form-inline">
-                    <input id="search-box" class="form-control mr-sm-2" type="search" placeholder="Weapon name" aria-label="Search">
-                    <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0" type="button">Go</button>
+                <form class="form-inline" id="search-form">
+                    <input id="search-box" class="form-control mr-sm-2" type="search" placeholder="Weapon name" aria-label="Search" required>
+                    <button id="search-btn" class="btn btn-outline-success my-2 my-sm-0">Go</button>
                 </form>
                 <a href="/create">create new weapon!</a>
             </div>
