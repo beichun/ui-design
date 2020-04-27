@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+
+{% block head %}
+
+{{ super() }}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz.js') }}"></script>
+
+<script>
+	var answer = {{answer|tojson}};
+	var images = {{images|tojson}};
+</script>
+
+<style>
+    .title {
+        display: block;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 50px;
+        font-size: 32;
+    }
+
+	#cocktail-image {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+		height: 80%;
+	}
+    .summary {
+        display: block;
+    }
+
+	.box {
+		
+	}
+
+</style>
+
+{% endblock head %}
+
+
+{% block content %}
+    
+{{ super() }}
+
+<div class="row">
+	<div class="col-md-12 title" id="title">
+		Quiz: Drag and drop what you need to make:
+	</div>
+	<div class="col-md-12" id="contents">
+		
+	</div>
+
+	<div class="col-md-12" id="answer">
+		<div class="row">
+			<div class="col-md-2 block">
+				1
+			</div>
+		</div>
+	</div>
+
+</div>
+
+{% endblock content %}
