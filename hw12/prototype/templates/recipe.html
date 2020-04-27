@@ -1,0 +1,85 @@
+{% extends 'layout.html' %}
+
+
+{% block head %}
+
+{{ super() }}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'recipe.js') }}"></script>
+
+<script>
+    var data = {{data|tojson}};
+</script>
+
+<style>
+    .title {
+        display: block;
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 50px;
+        font-size: 40;
+    }
+
+	#cocktail-image {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+		height: 80%;
+	}
+    .summary {
+        display: block;
+    }
+
+	iframe {
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+	}
+
+</style>
+
+{% endblock head %}
+
+
+{% block content %}
+    
+{{ super() }}
+
+<div class="row">
+	<div class="col-md-12 title" id="title">
+		
+	</div>
+	<div class="col-md-1"></div>
+
+	<div class="col-md-10" id="contents">
+		<div class="row">
+
+			<div class="col-md-6">
+				<img src="..." id="cocktail-image" alt="">				
+			</div>
+			<div class="col-md-6" id="items">
+				What you need: <br>				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe id="video" src="..." frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" id="steps">
+				Instructions: <br>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div id="example" class="row">
+    
+</div>
+
+{% endblock content %}
