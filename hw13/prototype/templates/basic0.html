@@ -30,6 +30,8 @@
     }
 
     .img-cover {
+        display: block;
+        padding-bottom: 10px;
         height: 220px;
         width: auto;
         margin-left: auto;
@@ -62,29 +64,29 @@
                         <div class="card-body">
                             <img src={{item.img}} class="card-img-top img-cover" alt={{item.title}}>
                             <h5 class="card-title">{{item.title}}</h5>
-                            <p class="card-text">Content</p>
+                            <!-- <p class="card-text">Content</p> -->
                         </div>
                     </div>
                 {% endfor %}
             </div>
     </div>
 
-    <div class="col-md-12 header">
-        <h3 class="p-2">Juice</h3>
+    <div class="col-md-12 header p-3">
+        <h3 class="p-2">Non-alchocol</h3>
         <div class="card-group">
             {% for item in data.juices %}
                 <div class="col-md-3 card">
                     <div class="card-body">
                         <img src={{item.img}} class="card-img-top img-cover" alt={{item.title}}>
                         <h5 class="card-title">{{item.title}}</h5>
-                        <p class="card-text">Content</p>
+                        <!-- <p class="card-text">Content</p> -->
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
 
-    <div class="col-md-12 header">
+    <div class="col-md-12 header p-3">
         <h3 class="p-2">Fruits (Optional)</h3>
     </div>
 </div>

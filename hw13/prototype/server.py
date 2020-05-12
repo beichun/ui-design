@@ -74,20 +74,21 @@ recipe_data = [
         "title": "Sex on the Beach",
         "description": "The Hairy Navel is the drink you're looking for if you want a fuzzy navel with vodka. It has the same wonderful flavor combination of orange and peach, it's just a little stronger.",
         "img": "https://www.thespruceeats.com/thmb/Z3C-kthEuuhPOSID5IiREuM_168=/4563x2567/smart/filters:no_upscale()/sex-on-the-beach-cocktail-recipe-759828-Hero-5b699b04c9e77c0025ecf52c.jpg",
-        "video": "https://www.youtube.com/embed/ckcV0K8Oc_Y?start=25",
+        "video": "https://www.youtube.com/embed/H2ieVJmq9ao?start=4",
         "items": [
             "A glass",
-            "1 ounce vodka",
-            "1 ounce peach schnapps",
-            "Orange juice (to fill the glass)",
+            "½ oz Vodka",
+            "½ oz peach schnapps",
+            "Cranberry juice",
+            "Orange juice",
             "Ice"
         ],
         "steps": [
             "Fill glass with ice",
-            "Pour 1 oz Vodka",
-            "Pour 1 oz peach schnapps",
-            "Fill with orange juice",
-            "(optional) garnish with an orange slice",
+            "Pour ½ oz Vodka",
+            "Pour ½ oz peach schnapps",
+            "Fill with orange juice and cranberry juice",
+            "(optional) garnish with an orange/lemon slice, put a cherry on top",
             "Ready to serve!"
         ]
     },
@@ -95,20 +96,21 @@ recipe_data = [
         "title": "Moscow Mule",
         "description": "The Hairy Navel is the drink you're looking for if you want a fuzzy navel with vodka. It has the same wonderful flavor combination of orange and peach, it's just a little stronger.",
         "img": "https://media2.s-nbcnews.com/i/newscms/2016_19/1082361/mango-moscow-mule-today-20160510-tease_c9a61ef16664a589a98fc4e8a55e2d08.jpg",
-        "video": "https://www.youtube.com/embed/ckcV0K8Oc_Y?start=25",
+        "video": "https://www.youtube.com/embed/W1_eAahUUpM?start=30",
         "items": [
             "A glass",
-            "1 ounce vodka",
-            "1 ounce peach schnapps",
-            "Orange juice (to fill the glass)",
+            "2 ounce Vodka",
+            "3 ounce ginger beer",
+            "Fresh lime or lime juice",
+            "(optional) Lime wheel",
             "Ice"
         ],
         "steps": [
-            "Fill glass with ice",
-            "Pour 1 oz Vodka",
-            "Pour 1 oz peach schnapps",
-            "Fill with orange juice",
-            "(optional) garnish with an orange slice",
+            "Press half lime into glass, or better, a copper mug",
+            "Pour 2 oz Vodka",
+            "Fill with ice",
+            "pour ginger beer"
+            "(optionally) top with a lime wheel",
             "Ready to serve!"
         ]
     },
@@ -116,7 +118,7 @@ recipe_data = [
         "title": "Cuba Libre",
         "description": "The Hairy Navel is the drink you're looking for if you want a fuzzy navel with vodka. It has the same wonderful flavor combination of orange and peach, it's just a little stronger.",
         "img": "https://assets.punchdrink.com/wp-content/uploads/2014/07/Cuba-Libre.jpg",
-        "video": "https://www.youtube.com/embed/ckcV0K8Oc_Y?start=25",
+        "video": "https://www.youtube.com/embed/AcYqmOX-OtU?start=46",
         "items": [
             "A glass",
             "1 ounce vodka",
@@ -135,7 +137,7 @@ recipe_data = [
     }
 ]
 
-quiz_answer = [
+quiz_answers = [
     {
         "name": "Hairy Navel",
         "steps": ["vodka", "peach schnapps", "orange juice"]
@@ -218,10 +220,6 @@ learning_status = {
     ]
 }
 
-images = {
-    "vodka": "https://cdn.shopify.com/s/files/1/0013/2477/7569/products/absorg_1000x.jpg?v=1542752999"
-}
-
 basic_material0 = {
     "spirits": [
         {
@@ -235,6 +233,10 @@ basic_material0 = {
         {
             "title": "Ginger Beer",
             "img": "https://www.behindthebar.com/media/catalog/product/c/p/cp500129_fever-tree-premium-ginger-beer-6.8-oz_01.jpg"
+        },
+        {
+            "title": "Rum",
+            "img": "https://www.haskells.com/media/catalog/product/cache/1/image/816x1200/040ec09b1e35df139433887a97daa66f/1/3/133100_0_1_1.jpg"
         }
     ],
     "juices": [
@@ -245,6 +247,10 @@ basic_material0 = {
         {
             "title": "Orange juice",
             "img": "https://cdn11.bigcommerce.com/s-bh9y1guk/images/stencil/2048x2048/products/369/539/Tropicana-Orange-Juice__38340.1528291909.jpg?c=2&imbypass=on"
+        },
+        {
+            "title": "Coca-Cola",
+            "img": "https://www.cokesolutions.com/content/cokesolutions/site/us/en/products/brands/coca-cola/coca-cola.main-image.290-417.png"
         }
     ]
 }
@@ -314,12 +320,15 @@ def recipe(id):
 def quiz(id):
 
     global quiz
-    global images
     global learning_status
+    global basic_material0
+    global quiz_answers
 
     id = int(id)
 
-    return render_template('quiz.html', status=learning_status, images=images, quiz_index=id)
+
+
+    return render_template('quiz.html', status=learning_status, quiz_index=id, data=basic_material0, answer=quiz_answers[id])
 
 
 @app.route('/progress/<option>')

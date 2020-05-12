@@ -20,11 +20,27 @@ $(document).ready(function () {
     // make progress bar
     update_progress_bar(quiz_status)
 
-    $(".card").draggable({
+    $(".card-body").data({
+        'originalLeft': $(this).css('left'),
+        'origionalTop': $(this).css('top')
+    });
+
+    $(".reset").click(function() {
+        $(this).css({
+            'left': $(this).data('originalLeft'),
+            'top': $(this).data('origionalTop')
+        });
+    });
+
+    $(".draggable").draggable({
         revert: true,
 
-        start: function () {
+        start: function() {
+            $(".droppable-dashes").removeClass("d-none")
+        },
 
+        stop: function() {
+            $(".droppable-dashes").addClass("d-none")
         }
     })
 
