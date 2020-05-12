@@ -1,0 +1,176 @@
+{% extends 'layout.html' %}
+
+
+{% block head %}
+
+{{ super() }}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'recipe.js') }}"></script>
+
+<script>
+	var data = {{data|tojson}};
+	var recipe_index = {{recipe_index|tojson}}
+</script>
+
+<style>	
+	#menu {
+		position: fixed;
+		top: 53%;
+		left: 23%;
+		width: 220px;
+	}
+	/* Container holding the image and the text */
+	.img-container {
+		display: block;
+		position: relative;
+		height: 400px;
+		width: 90%;
+		overflow: hidden;
+		justify-content: center;
+	}
+	
+	/* Bottom right text */
+	.text-block {
+		position: absolute;
+		bottom: 20px;
+		right: 26px;
+		background-color: black;
+		color: white;
+		opacity: 0.8;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	
+	#cocktail-image {
+		position: relative;
+		width: 100%;
+		object-fit: cover;
+		overflow: hidden;
+		top: -40px;
+	}
+
+	h4 {
+		padding-top: 80px;
+		font-weight:bold;
+	}
+    .summary {
+        display: block;
+    }
+
+	iframe {
+		padding-top: 20px;
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 80%;
+	}
+
+	.right-align {
+		float: right;
+	}
+
+	.video-icon {
+		height: 40px;
+		width: auto;
+	}
+
+</style>
+
+{% endblock head %}
+
+
+{% block content %}
+    
+{{ super() }}
+
+<div class="row">
+
+	<div class="col-md-12 d-flex justify-content-center">
+		<!-- <img src={{status.recipes[recipe_index].img}} id="cocktail-image" alt=""> -->
+		<div class="img-container">
+			<img src={{data.img}} id="cocktail-image" alt="">
+			<div class="text-block">
+				<p><h1>{{data.title}}</h1></p>
+			  <p>What a beautiful sunrise</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-12" id="contents">
+		<div class="row">
+			<div id="menu">
+				<div class="list-group">
+					{% for item in status.recipes %}
+						{% if loop.index0==recipe_index %}
+							<button type="button" class="list-group-item list-group-item-action active">
+								{{item.title}}
+							</button>
+						{% else %}
+						<button type="button" class="list-group-item list-group-item-action">
+							{{item.title}}
+						</button>
+						{% endif %}
+					{% endfor %}
+				  </div>
+			</div>
+
+			<div class="col-md-4">
+
+			</div>
+
+			<div class="col-md-8">
+				<div class="row">
+					<div class="col-md-9" id="items">
+						<h4>Preparation <span class="badge badge-secondary">{{data['items']|length}}</span></h4>
+						
+						<ul class="list-group list-group-flush">
+							{% for item in data['items'] %}
+								<li class="list-group-item p-2">{{item}}</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12" id="steps">
+						<h4>Instructions <span class="badge badge-secondary">{{data.steps|length}}</span></h4>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-12 p-3">
+						<h4>Follow the video <img src='https://as1.ftcdn.net/jpg/01/17/86/06/500_F_117860630_SAaPjcH4WaK3pJdRW2tnW9EUB4L5kjo3.jpg' id='video-icon' class='video-icon' alt='locked'></h4>	
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe id="video" src="{{data.video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
+					</div>
+				</div>
+
+				
+			</div>
+			
+		</div>
+		
+		
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-md-6 d-flex justify-content-left p-4">
+		<a class="btn btn-primary" id="learning-btn" href="/progress/recipe" role="button">Review recipes</a>
+	</div>
+
+	<div class="col-md-6 p-4">
+
+		{% if recipe_index==4 %}
+			<a class="btn btn-primary right-align" type="button" href="/quiz/0">Start quiz!</a>
+		{% else %}
+			<a class="btn btn-primary right-align" type="button" href="/recipes/{{recipe_index+1}}">See next recipe</a>
+		{% endif %}
+
+    </div>
+</div>
+
+{% endblock content %}

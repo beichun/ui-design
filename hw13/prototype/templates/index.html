@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+
+{% block head %}
+
+{{ super() }}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'index.js') }}"></script>
+
+<script>
+</script>
+
+<style>
+    .title {
+        display: block;
+        text-align: center;
+        padding-top: 80px;
+        padding-bottom: 20px;
+        font-size: 40;
+    }
+
+    #carousel-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .carousel {
+        height: 100%;
+    }
+    .fit-cover {
+        object-fit: cover;
+    }
+    .carousel-caption {
+        font-size: larger;
+    }
+
+</style>
+
+{% endblock head %}
+
+
+{% block content %}
+    
+{{ super() }}
+
+<div class="row">
+    <div class="col-md-12 title">
+        5 Cocktails in 10 Minutes
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12" id="carousel-container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for item in status.recipes %}
+                    <li data-target="#carouselExampleIndicators" data-slide-to="{{loop.index0}}" {{"class=active" if loop.index0==0}}></li>
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for item in status.recipes %}
+                    <div class="carousel-item {{'active' if loop.index0==0}}" id="slide{{loop.index0}}">
+                        <img class="d-block fit-cover w-100 h-80" id="img{{loop.index0}}" src="{{item.img}}" alt="{{item.title}}">
+                        <div class="carousel-caption">
+                            {{item.title}}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- <br> -->
+<!-- Learn how to make one for yourself at home, or for your friends at the party! -->
+<br>
+
+<div class="row">
+    <div class="col-md-12 d-flex justify-content-center p-5">
+        <a class="btn btn-primary" id="learning-btn" href="/progress/all" role="button">Start Learning</a>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,181 @@
+{% extends 'layout.html' %}
+
+
+{% block head %}
+
+{{ super() }}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'progress.js') }}"></script>
+
+<script>
+	var status = {{status|tojson}};
+	var status_basics = {{status.basics|tojson}}
+	var status_recipes = {{status.recipes|tojson}}
+
+</script>
+
+
+<style>
+    .title {
+        display: block;
+        text-align: center;
+        padding-top: 80px;
+        padding-bottom: 120px;
+        font-size: 40px;
+	}
+	
+	.subheader {
+		display: block;
+		padding-left: 20px;
+        padding-top: 30px;
+        padding-bottom: 10px;
+        font-size: 32px;
+	}
+
+	#cocktail-image {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+		height: 80%;
+	}
+    .summary {
+        display: block;
+    }
+
+	.card-img-top {
+		height: 200px;
+		width: auto;
+	}
+
+	.undone {
+		color: silver;
+	}
+
+	.title-smaller {
+		font-size: 20px;
+	}
+
+	.grey-img {
+		filter: grayscale(100%);
+	}
+
+	.img-contain {
+		object-fit: contain;
+	}
+
+	.img-cover {
+		object-fit: cover;
+	}
+
+	.stretched-link::after {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		pointer-events: auto;
+		content: "";
+		background-color: rgba(0,0,0,0);
+	}
+
+	.lock-icon {
+		height: 18px;
+		width: auto;
+	}
+
+</style>
+
+{% endblock head %}
+
+
+{% block content %}
+    
+{{ super() }}
+<div class="row">
+	<div class="col-md-12 title" id="title">
+		My progress
+	</div>
+
+	<div class="col-md-12">
+		<div class="accordion" id="accordionExample">
+			<div class="card">
+				<div class="card-header" id="headingOne">
+					<h2 class="mb-0">
+						<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							Basics
+						</button>
+					</h2>
+				</div>
+				
+				<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+					
+					<div class="card-group">
+						{% for item in status.basics %}
+							<div class="col-md-4 card">
+								<img src={{item.img}} class="card-img-top img-contain {{ 'grey-img' if not item.learned }}" alt="...">
+								<div class="card-body {{ 'text-muted' if not item.learned }}">
+									<h5 class="card-title">{{item.title}}</h5>
+									<p class="card-text">{{item.intro}}</p>
+								</div>
+								<a href="/basics/{{loop.index0}}" class="stretched-link"></a>
+							</div>
+						{% endfor %}
+					</div>
+
+				</div>
+				
+			</div>
+
+			<div class="card">
+				<div class="card-header" id="headingTwo">
+					<h2 class="mb-0">
+						<button class="btn btn-link collapsed" type="button" id="recipe-button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							Recipes
+						</button>
+					</h2>
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+					
+					<div class="card-group">
+						{% for item in status.recipes %}
+							<div class="col-md-4 card">
+								<img src={{item.img}} class="card-img-top img-cover {{ 'grey-img' if not item.learned }}" alt="...">
+								<div class="card-body {{ 'text-muted' if not item.learned }}">
+									<h5 class="card-title title-smaller d-flex justify-content-center">{{item.title}}</h5>
+									<p class="card-text">{{item.intro}}</p>
+								</div>
+								<a href="/recipes/{{loop.index0}}" class="stretched-link"></a>
+							</div>
+						{% endfor %}
+					</div>
+
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header" id="headingThree">
+					<h2 class="mb-0">
+						<button class="btn btn-link collapsed" type="button" id="quiz-button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							Quizes
+						</button>
+					</h2>
+				</div>
+				<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+						<ul class="list-group">
+							{% for item in status.quizes %}
+								<li class="list-group-item {{ 'text-muted' if not item.learned }}">
+									#{{loop.index}} {{ item.title }}
+									<a href="/quiz/{{loop.index0}}" class="stretched-link"></a>
+								</li>
+							{% endfor %}
+						</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+{% endblock content %}

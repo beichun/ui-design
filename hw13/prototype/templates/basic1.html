@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+
+{% block head %}
+
+{{ super() }}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'basic1.js') }}"></script>
+
+<script>
+    var data = {{data|tojson}}
+</script>
+
+<style>
+    .title {
+        display: block;
+        text-align: center;
+        padding-top: 80px;
+        padding-bottom: 20px;
+        font-size: 40;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h5 {
+        font-weight: bold;
+    }
+
+    .img-cover {
+        display: block;
+        height: 250px;
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 20px;
+    }
+
+    .card-text {
+        color: grey;
+    }
+
+    .right-align {
+		float: right;
+	}
+</style>
+
+{% endblock head %}
+
+
+{% block content %}
+    
+{{ super() }}
+
+<div class="row">
+    <div class="col-md-12 title">
+        <h1>Basics 2/2: Tools</h1>
+        
+    </div>
+
+    <div class="col-md-12 header p-3">
+        <h3>Drink container</h3>
+        <span>For serving.</span>
+        <div class="card-group">
+            {% for item in data.containers %}
+                <div class="col-md-4 card">
+                    <div class="card-body">
+                        <img src={{item.img}} class="card-img-top img-cover" alt={{item.title}}>
+                        <h5 class="card-title">{{item.title}}</h5>
+                        <p class="card-text">{{item.summary}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="col-md-12 header p-3">
+        <h3>Jigger</h3>
+        Measures the liquid volume.
+        <div class="col-md-4 card">
+            <div class="card-body">
+                <img src={{data.jigger.img}} class="card-img-top img-cover" alt={{data.jigger.title}}>
+                <h5 class="card-title">Jigger</h5>
+                <p class="card-text">{{data.jigger.summary}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 header p-3">
+        <h3>Spoon</h3>
+        With a spoon, you can better mix the ingredients.
+        <div class="col-md-4 card">
+            <div class="card-body">
+                <img src={{data.spoon.img}} class="card-img-top img-cover" alt={{data.spoon.title}}>
+                <h5 class="card-title">Spoon</h5>
+                <p class="card-text">{{data.spoon.summary}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+	<div class="col-md-6 d-flex justify-content-left p-5">
+		<a class="btn btn-primary" id="learning-btn" href="/progress/basics" role="button">Review</a>
+	</div>
+
+	<div class="col-md-6 p-5">
+        <a class="btn btn-primary right-align" type="button" href="/progress/recipe">See the recipes</a>
+
+    </div>
+</div>
+
+{% endblock content %}
